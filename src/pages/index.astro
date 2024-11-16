@@ -1,8 +1,13 @@
 ---
 import Logo from "../components/svg/logo.astro";
+import LogoExpand from "../components/svg/logo_expand.astro";
 import Layout from "../layouts/Layout.astro";
 import PictureOne from "../assets/images/picture_1.png";
 import PictureTwo from "../assets/images/picture_2.png";
+import Photo_1 from "../assets/images/photo_1.png";
+import Photo_2 from "../assets/images/photo_2.png";
+import Photo_3 from "../assets/images/photo_3.png";
+import Photo_4 from "../assets/images/photo_4.png";
 import { Image } from "astro:assets";
 ---
 
@@ -10,7 +15,9 @@ import { Image } from "astro:assets";
 	<main class="wrapper">
 		<div class="welcome min-h-screen bg-grafito flex justify-center items-center relative" id="welcome">
 			<div class="container">
-				<Logo />
+				<div class="flex justify-center">
+					<Logo />
+				</div>
 				<div class="absolute bottom-12 left-8 right-8">
 					<div class="container flex justify-between">
 						{
@@ -78,10 +85,56 @@ import { Image } from "astro:assets";
 					</div>
 				</div>
 			</div>
-			<div class="section_two bg-grafito py-16" id="section_two">
+			<div class="section_two bg-grafito py-16 overflow-hidden" id="section_two">
 				<div class="container">
-					<p class="font-light text-[23px] text-beige max-w-[275px] text-pretty mb-12">porque todo eso influye directamente en nuestra:</p>
-					<h2 class="text-[223px] text-beige tracking-tight leading-none">felicidad y bienestar.</h2>
+					<div class="flex flex-col gap-12 mb-[250px]">
+						<p class="font-light text-[23px] text-beige max-w-[275px] text-pretty">porque todo eso influye directamente en nuestra:</p>
+						<h2 class="text-[223px] text-beige tracking-tight leading-none">felicidad y bienestar.</h2>
+					</div>
+					<div class="relative min-h-[500px]">
+						<div class="absolute top-0 left-[75%] bottom-0 flex gap-4">
+							<div class="min-h-[500px] w-[272px]">
+								<Image src={Photo_1} alt="Picture 1" class="w-full h-full object-cover" />
+							</div>
+
+							<div class="min-h-[500px] w-[272px]">
+								<Image src={Photo_2} alt="Picture 1" class="w-full h-full object-cover" />
+							</div>
+
+							<div class="min-h-[500px] w-[272px]">
+								<Image src={Photo_3} alt="Picture 1" class="w-full h-full object-cover" />
+							</div>
+
+							<div class="min-h-[500px] w-[272px]">
+								<Image src={Photo_4} alt="Picture 1" class="w-full h-full object-cover" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section_three bg-brandy pt-16 overflow-hidden" id="section_three">
+				<div class="grid grid-cols-12 gap-8 pt-20">
+					<div class="col-span-4 col-start-5 text-[30px] text-grafito text-center text-pretty font-light">
+						<p class="mb-16">Aunque cada barrio tiene su historia, no todos los barrios son <strong>inolvidables</strong>.</p>
+						<p>Y si bien cada edifico tiene su estilo, no todos los edificios tienen:</p>
+					</div>
+				</div>
+				<div class="h-[640px] relative">
+					<div class="absolute top-0 bottom-0 left-0">
+						<LogoExpand />
+					</div>
+				</div>
+			</div>
+			<div class="section_four py-16 bg-grafito" id="section_four">
+				<div class="container">
+					<div class="grid grid-cols-12 gap-8">
+						<div class="col-span-7 py-16">
+							<h3 class="text-5xl text-pretty text-left text-beige font-light">
+								Para nosotros, un proyecto inmobiliario es un proceso de profundo análisis, que no solo pensamos como negocio, sino también como una propuesta
+								que de verdad suma valor a la ciudad.
+							</h3>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
