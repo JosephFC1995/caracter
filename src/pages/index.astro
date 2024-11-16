@@ -8,6 +8,10 @@ import Photo_1 from "../assets/images/photo_1.png";
 import Photo_2 from "../assets/images/photo_2.png";
 import Photo_3 from "../assets/images/photo_3.png";
 import Photo_4 from "../assets/images/photo_4.png";
+import PictureTeam from "../assets/images/team_presentation.png";
+import Jose from "../assets/images/jose_camborda.png";
+import Tania from "../assets/images/tania_lopez.png";
+import Billboard from "../assets/images/billboard.png";
 import { Image } from "astro:assets";
 ---
 
@@ -128,13 +132,101 @@ import { Image } from "astro:assets";
 			<div class="section_four py-16 bg-grafito" id="section_four">
 				<div class="container">
 					<div class="grid grid-cols-12 gap-8">
-						<div class="col-span-7 py-16">
+						<div class="col-span-7 py-20">
 							<h3 class="text-5xl text-pretty text-left text-beige font-light">
 								Para nosotros, un proyecto inmobiliario es un proceso de profundo análisis, que no solo pensamos como negocio, sino también como una propuesta
 								que de verdad suma valor a la ciudad.
 							</h3>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="section_five bg-beige" id="section_five">
+				<div class="container">
+					<div class="grid grid-cols-12">
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative">
+							<div class="w-[1px] bg-gris h-[100%] absolute top-0 right-0"></div>
+							<div class="h-[1px] bg-gris w-[100%] absolute bottom-0 left-0 right-0"></div>
+							<p class="text-[23px] text-pretty font-light">Nacemos con el propósito de contribuir sinceramente a hacer de Lima una ciudad mejor.</p>
+						</div>
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative">
+							<div class="w-[1px] bg-gris h-[100%] absolute top-0 right-0"></div>
+							<div class="h-[1px] bg-gris w-[100%] absolute bottom-0 left-0 right-0"></div>
+						</div>
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative">
+							<div class="h-[1px] bg-gris w-[100%] absolute bottom-0 left-0 right-0"></div>
+							<p class="text-[23px] text-pretty font-light">
+								Porque es ahí donde empieza una nueva etapa en la vida de los que deciden mudarse a un depa con <strong>Carácter.</strong>
+							</p>
+						</div>
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative">
+							<div class="w-[1px] bg-gris h-[100%] absolute top-0 right-0"></div>
+						</div>
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative">
+							<div class="w-[1px] bg-gris h-[100%] absolute top-0 right-0"></div>
+							<p class="text-[23px] text-pretty font-light">Creemos en las relaciones de largo plazo, porque un proyecto no termina con la entrega.</p>
+						</div>
+						<div class="col-span-4 min-h-[250px] aspect-square flex justify-center items-center px-8 relative"></div>
+					</div>
+				</div>
+			</div>
+			<div class="section_six py-20 bg-brandy" id="section_six">
+				<div class="container">
+					<div class="grid grid-cols-12 gap-8">
+						<div class="col-span-8 py-20">
+							<h3 class="text-[60px] text-balance text-left text-grafito font-light">
+								Estamos trabajando para lanzar nuestro próximo proyecto. Bienvenidos los terrenos y todas las ideas.
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section_seven bg-beige" id="section_seven">
+				<div class="grid grid-cols-12 gap-8 text-grafito">
+					<div class="col-span-6 pb-6 flex items-end">
+						<h4 class="font-light text-[30px] text-pretty dynamic-padding">
+							Nuestro equipo core tiene más de 13 años trabajando juntos. Hemos aprendido mucho del sector inmobiliario, analizado a fondo sus oportunidades y
+							entendido cuáles dónde hay espacio para hacer algo diferentes, necesario y relevante para la gente que quiere vivir bien.
+						</h4>
+					</div>
+					<div class="col-span-6">
+						<div class="h-[850px] relative overflow-hidden">
+							<Image src={PictureTeam} alt="Picture team" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+						</div>
+					</div>
+				</div>
+				<div class="container py-40">
+					<div class="grid grid-cols-12 gap-8 justify-between">
+						<div class="col-span-5 text-grafito">
+							<div>
+								<div class="h-[470px] w-[360px] relative overflow-hidden mb-16">
+									<Image src={Jose} alt="Jose Camborda" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+								</div>
+								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Jose <br /> Camborda</h2>
+								<p class="text-[23px] text-pretty font-light">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+									veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</p>
+							</div>
+						</div>
+						<div class="col-span-5 text-grafito col-start-8">
+							<div>
+								<div class="h-[470px] w-[360px] relative overflow-hidden mb-16">
+									<Image src={Tania} alt="Tania López-Guerra" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+								</div>
+								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Tania <br /> López-Guerra</h2>
+								<p class="text-[23px] text-pretty font-light">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+									veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section_eight" id="section_eight">
+				<div class="h-screen w-full relative overflow-hidden">
+					<Image src={Billboard} alt="Tania López-Guerra" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
 				</div>
 			</div>
 		</div>
@@ -150,5 +242,32 @@ import { Image } from "astro:assets";
 <style>
 	main {
 		margin: 0 auto;
+	}
+	.dynamic-padding {
+		padding-left: calc((100vw - 640px) / 2); /* Predeterminado para el primer breakpoint */
+	}
+
+	@media (min-width: 768px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 768px) / 2);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 1024px) / 2);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 1280px) / 2);
+		}
+	}
+
+	@media (min-width: 1536px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 1536px) / 2);
+		}
 	}
 </style>
