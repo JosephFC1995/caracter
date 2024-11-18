@@ -1,22 +1,25 @@
 {
-  "name": "caracter-landing",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/tailwind": "^5.1.2",
-    "animejs": "^3.2.2",
-    "astro": "^4.16.12",
-    "astro-font": "^0.1.81",
-    "gsap": "^3.12.5",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
-  }
+	"name": "caracter-landing",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@astrojs/tailwind": "^5.1.2",
+		"animejs": "^3.2.2",
+		"astro": "^4.16.12",
+		"astro-font": "^0.1.81",
+		"gsap": "^3.12.5",
+		"tailwindcss": "^3.4.15",
+		"typescript": "^5.6.3"
+	},
+	"devDependencies": {
+		"@types/animejs": "^3.1.12"
+	}
 }
