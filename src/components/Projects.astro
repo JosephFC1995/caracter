@@ -1,0 +1,105 @@
+---
+import Photo_1 from "../assets/images/photo_1.png";
+import Photo_2 from "../assets/images/photo_2.png";
+import Photo_3 from "../assets/images/photo_3.png";
+import Photo_4 from "../assets/images/photo_4.png";
+import { Image } from "astro:assets";
+
+const id = "projects";
+---
+
+<div class="section_two bg-grafito py-16 overflow-hidden" id={id}>
+	<div class="container">
+		<div class="flex flex-col gap-12 mb-24 md:mb-[200px]">
+			<p class="font-light text-[20px] md:text-[23px] text-beige max-w-[275px] text-pretty">porque todo eso influye directamente en nuestra:</p>
+			<h2 class="text-[77px] md:text-[223px] text-beige tracking-tight leading-none">felicidad y bienestar.</h2>
+		</div>
+		<div class="relative min-h-[500px]" id="container-projects">
+			<div class="absolute top-0 left-[75%] bottom-0 flex gap-4" id="list_projects">
+				<div class="min-h-[500px] w-[272px] scale-[0.8]">
+					<Image src={Photo_1} alt="Picture 1" class="w-full h-full object-cover" />
+				</div>
+
+				<div class="min-h-[500px] w-[272px] scale-[0.8]">
+					<Image src={Photo_2} alt="Picture 1" class="w-full h-full object-cover" />
+				</div>
+
+				<div class="min-h-[500px] w-[272px] scale-[0.8]">
+					<Image src={Photo_3} alt="Picture 1" class="w-full h-full object-cover" />
+				</div>
+
+				<div class="min-h-[500px] w-[272px] scale-[0.8]">
+					<Image src={Photo_4} alt="Picture 1" class="w-full h-full object-cover" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	const id = "projects";
+	import anime, { type AnimeAnimParams } from "animejs";
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	let timeline = anime.timeline({ autoplay: false });
+
+	const isMobile = window.innerWidth <= 768;
+
+	const getLeftValue = () => {
+		return window.innerWidth <= 768 ? ["75%", "-230%"] : ["75%", "0"];
+	};
+
+	const action_1: AnimeAnimParams = {
+		targets: `#${id} #list_projects`,
+		left: getLeftValue(),
+		duration: 1000,
+		delay: 0,
+		easing: "easeInOutQuad",
+	};
+
+	timeline.add(action_1);
+
+	ScrollTrigger.create({
+		trigger: `#container-projects`,
+		start: "center center",
+		end: "+=2000",
+		pin: true,
+		scrub: true,
+		onUpdate: (self) => {
+			timeline.seek(timeline.duration * self.progress);
+		},
+	});
+
+	window.addEventListener("resize", () => {
+		action_1.left = getLeftValue();
+		timeline.restart();
+	});
+
+	const images_projects = document.querySelectorAll(`#${id} #list_projects > div`);
+
+	ScrollTrigger.create({
+		trigger: `#container-projects`,
+		start: "center center",
+		end: "+=1500",
+		scrub: true,
+		onUpdate: (self: ScrollTrigger) => {
+			const triggerStep = 0.2;
+			const progress = self.progress;
+			images_projects.forEach((element, index) => {
+				const activationPoint = index * triggerStep;
+				if (activationPoint > progress) return;
+				const animate = anime({
+					targets: element,
+					scale: [0.8, 1],
+					easing: "easeInOutQuad",
+					duration: 1000,
+					autoplay: false,
+				});
+				animate.seek(progress * animate.duration);
+			});
+		},
+	});
+</script>

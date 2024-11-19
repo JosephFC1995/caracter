@@ -5,10 +5,6 @@ import LogoCaracter from "../components/svg/logo_caracter.astro";
 import Layout from "../layouts/Layout.astro";
 import PictureOne from "../assets/images/picture_1.png";
 import PictureTwo from "../assets/images/picture_2.png";
-import Photo_1 from "../assets/images/photo_1.png";
-import Photo_2 from "../assets/images/photo_2.png";
-import Photo_3 from "../assets/images/photo_3.png";
-import Photo_4 from "../assets/images/photo_4.png";
 import PictureTeam from "../assets/images/team_presentation.png";
 import Jose from "../assets/images/jose_camborda.png";
 import Tania from "../assets/images/tania_lopez.png";
@@ -18,6 +14,11 @@ import { Image } from "astro:assets";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Welcome from "../components/Welcome.astro";
+import Projects from "../components/Projects.astro";
+
+import Place_1 from "../assets/images/place_1.png";
+import Place_2 from "../assets/images/place_2.png";
+import Place_3 from "../assets/images/place_3.png";
 ---
 
 <Layout title="Carácter">
@@ -56,13 +57,13 @@ import Welcome from "../components/Welcome.astro";
 						<div class="col-span-1 md:col-span-12">
 							<div class="grid grid-cols-1 md:grid-cols-12 md:gap-8">
 								<div class="col-span-1 md:col-span-3 min-h-[350px] order-1 md:order-1 mb-8 md:mb-0">
-									<Image src={PictureOne} alt="Picture 1" class="w-full h-full object-cover" />
+									<Image src={Place_1} alt="Place 1" class="w-full h-full object-cover" />
 								</div>
 								<div class="col-span-1 md:col-span-3 min-h-[350px] order-2 md:order-2">
-									<Image src={PictureTwo} alt="Picture 2" class="w-full h-full object-cover" />
+									<Image src={Place_2} alt="Place 2" class="w-full h-full object-cover" />
 								</div>
 								<div class="col-span-1 md:col-span-3 min-h-[350px] order-4 md:order-3">
-									<Image src={PictureTwo} alt="Picture 2" class="w-full h-full object-cover" />
+									<Image src={Place_3} alt="Place 2" class="w-full h-full object-cover" />
 								</div>
 								<div
 									class="col-span-1 md:col-span-3 relative min-h-[200px] md:min-h-[350px] px-4 flex justify-center items-center order-3 md:order-4 py-12 md:py-0"
@@ -77,33 +78,7 @@ import Welcome from "../components/Welcome.astro";
 					</div>
 				</div>
 			</div>
-			<div class="section_two bg-grafito py-16 overflow-hidden" id="section_two">
-				<div class="container">
-					<div class="flex flex-col gap-12 mb-24 md:mb-[250px]">
-						<p class="font-light text-[20px] md:text-[23px] text-beige max-w-[275px] text-pretty">porque todo eso influye directamente en nuestra:</p>
-						<h2 class="text-[77px] md:text-[223px] text-beige tracking-tight leading-none">felicidad y bienestar.</h2>
-					</div>
-					<div class="relative min-h-[500px]">
-						<div class="absolute top-0 left-[75%] bottom-0 flex gap-4">
-							<div class="min-h-[500px] w-[272px]">
-								<Image src={Photo_1} alt="Picture 1" class="w-full h-full object-cover" />
-							</div>
-
-							<div class="min-h-[500px] w-[272px]">
-								<Image src={Photo_2} alt="Picture 1" class="w-full h-full object-cover" />
-							</div>
-
-							<div class="min-h-[500px] w-[272px]">
-								<Image src={Photo_3} alt="Picture 1" class="w-full h-full object-cover" />
-							</div>
-
-							<div class="min-h-[500px] w-[272px]">
-								<Image src={Photo_4} alt="Picture 1" class="w-full h-full object-cover" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Projects />
 			<div class="section_three bg-brandy pt-16 md:pt-36 overflow-hidden" id="section_three">
 				<div class="grid grid-cols-6 md:grid-cols-12 gap-8 pt-20 md:mb-24">
 					<div class="col-span-4 md:col-span-4 col-start-2 md:col-start-5 text-[22px] md:text-[30px] text-grafito text-center text-pretty font-light">
@@ -111,12 +86,12 @@ import Welcome from "../components/Welcome.astro";
 						<p class="text-[22px] md:text-[30px]">Y si bien cada edifico tiene su estilo, no todos los edificios tienen:</p>
 					</div>
 				</div>
-				<div class="h-[318px] md:h-[640px] relative flex [--duration:30s] [--gap:6rem] translate-y-4">
+				<div class="h-[318px] md:h-[640px] relative flex [--duration:30s] [--gap:6rem] translate-y-4 gap-32">
 					{
 						Array(4)
 							.fill(0)
 							.map((_, i) => (
-								<div class="flex animate-marquee shrink-0 justify-around whitespace-nowrap gap-24">
+								<div class="flex animate-marquee shrink-0 justify-around whitespace-nowrap">
 									<LogoExpand />
 								</div>
 							))
@@ -127,7 +102,7 @@ import Welcome from "../components/Welcome.astro";
 				<div class="container">
 					<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 						<div class="colspan-1 md:col-span-6 py-20">
-							<h3 class="text-[30px] md:text-[52px] text-pretty text-left text-beige font-extralight leading-none md:!leading-tight tracking-[-2.5px]">
+							<h3 class="text-[30px] md:text-[52px] text-pretty text-left text-beige font-extralight leading-none md:!leading-tight tracking-[-1.5px] md:tracking-[-2.5px]">
 								Para nosotros, un proyecto inmobiliario es un proceso de profundo análisis, que no solo pensamos como negocio, sino también como una propuesta
 								que de verdad suma valor a la ciudad.
 							</h3>
@@ -197,7 +172,7 @@ import Welcome from "../components/Welcome.astro";
 			<div class="section_seven bg-beige" id="section_seven">
 				<div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-grafito">
 					<div class="col-span-1 md:col-span-6 py-12 md:pt-0 md:pb-6 flex items-end order-2 md:order-1 pl-4 pr-6 md:px-0 md:pr-20">
-						<h4 class="font-light text-[20px] md:text-[30px] text-pretty dynamic-padding tracking-[-2.5px]">
+						<h4 class="font-light text-[20px] md:text-[30px] text-pretty dynamic-padding tracking-[-1.5px] md:tracking-[-2.5px]">
 							Nuestro equipo core tiene más de 13 años trabajando juntos. Hemos aprendido mucho del sector inmobiliario, analizado a fondo sus oportunidades y
 							entendido cuáles dónde hay espacio para hacer algo diferentes, necesario y relevante para la gente que quiere vivir bien.
 						</h4>
@@ -259,7 +234,6 @@ import Welcome from "../components/Welcome.astro";
 <script>
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
-	import anime from "animejs";
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -275,25 +249,25 @@ import Welcome from "../components/Welcome.astro";
 
 	@media (min-width: 768px) {
 		.dynamic-padding {
-			padding-left: calc((100vw - 768px) / 2);
+			padding-left: calc((100vw - 700px) / 2);
 		}
 	}
 
 	@media (min-width: 1024px) {
 		.dynamic-padding {
-			padding-left: calc((100vw - 1024px) / 2);
+			padding-left: calc((100vw - 965px) / 2);
 		}
 	}
 
 	@media (min-width: 1280px) {
 		.dynamic-padding {
-			padding-left: calc((100vw - 1280px) / 2);
+			padding-left: calc((100vw - 1208px) / 2);
 		}
 	}
 
 	@media (min-width: 1536px) {
 		.dynamic-padding {
-			padding-left: calc((100vw - 1536px) / 2);
+			padding-left: calc((100vw - 1462px) / 2);
 		}
 	}
 
