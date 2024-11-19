@@ -5,8 +5,10 @@ const { id = "footer" } = Astro.props;
 ---
 
 <footer id={id} class="footer pb-8 pt-20 bg-grafito">
-	<div class="container">
-		<h2 class="text-[43px] md:text-6xl text-pretty font-extralight text-beige mb-12 md:mb-18 leading-tight md:leading-tight tracking-[-1.5px] md:tracking-[-2.5px]">
+	<div class="container" id="services">
+		<h2
+			class="text-[43px] md:text-6xl text-pretty font-extralight text-beige mb-12 md:mb-18 leading-tight md:leading-tight tracking-[-1.5px] md:tracking-[-2.5px]"
+		>
 			¿Quieres hacer más eficiente un proyecto inmobiliario? También podemos ayudarte con eso.
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-14 md:mb-16">
@@ -17,9 +19,12 @@ const { id = "footer" } = Astro.props;
 				</p>
 			</div>
 			<div class="cols-span-1 md:col-span-5 md:col-start-7">
-				<p class="font-semibold text-[23px] text-pretty text-beige font-montserrat leading-tight mb-12 md:mb-4">
-					Evaluación de terrenos Due dilligence inmobiliario Revisión de solución arquitectónica Validación de oferta y demanda
-				</p>
+				<ul class="font-semibold text-[23px] text-pretty text-beige font-montserrat leading-tight mb-12 md:mb-4 list-disc list-inside">
+					<li>Evaluación de terrenos</li>
+					<li>Due dilligence inmobiliario</li>
+					<li>Revisión de solución arquitectónica</li>
+					<li>Validación de oferta y demanda</li>
+				</ul>
 				<a
 					href="#"
 					class="text-xl md:text-2xl text-beige hover:text-grafito border border-beige hover:bg-beige flex justify-center items-center h-[60px] md:h-[50px] cursor-pointer transition-all duration-300 ease-in-out"
@@ -28,7 +33,7 @@ const { id = "footer" } = Astro.props;
 				</a>
 			</div>
 		</div>
-		<div class="bg-brandy pb-0 md:pb-8 p-8">
+		<div class="bg-brandy pb-0 md:pb-8 p-8" id="contact">
 			<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
 				<div class="cols-span-1 md:col-span-6">
 					<LogoCaracter class="w-auto h-[50px] md:h-auto" />
@@ -37,41 +42,66 @@ const { id = "footer" } = Astro.props;
 					<h3 class="text-[30px] md:text-4xl text-grafito font-light text-balance mb-4">¿En qué podemos ayudarte?</h3>
 					<ul class="flex flex-col gap-2">
 						<li>
-							<a href="#" class="font-light text-lg text-grafito underline font-montserrat"> Tengo un terreno </a>
+							<a href="mailto:contacto@caracterinmobiliaria.com" target="_blank" class="font-light text-lg text-grafito underline font-montserrat">
+								Tengo un terreno
+							</a>
 						</li>
 						<li>
-							<a href="#" class="font-light text-lg text-grafito underline font-montserrat"> Quiero comprar un depa </a>
+							<a href="mailto:contacto@caracterinmobiliaria.com" target="_blank" class="font-light text-lg text-grafito underline font-montserrat">
+								Quiero comprar un depa
+							</a>
 						</li>
 						<li>
-							<a href="#" class="font-light text-lg text-grafito underline font-montserrat">Quiero asesoría en un proyecto inmobiliario </a>
+							<a href="mailto:contacto@caracterinmobiliaria.com" target="_blank" class="font-light text-lg text-grafito underline font-montserrat"
+								>Quiero asesoría en un proyecto inmobiliario
+							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-t border-grafito border-b-0 md:border-b -mx-8 md:mx-0">
 				<div class="cols-span-1 md:col-span-2 border-r-0 md:border-r border-grafito border-b md:border-b-0">
-					<a href="#" class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light">Linkedin</a
+					<a
+						href="#"
+						target="_blank"
+						class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light">Linkedin</a
 					>
 				</div>
 				<div class="cols-span-1 md:col-span-2 border-r-0 md:border-r border-grafito border-b md:border-b-0">
-					<a href="#" class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light"
-						>Instagram</a
+					<a
+						href="#"
+						target="_blank"
+						class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light"
 					>
+						Instagram
+					</a>
 				</div>
 				<div class="cols-span-1 md:col-span-4 border-r-0 md:border-r border-grafito border-b md:border-b-0">
-					<a href="#" class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light">
-						contacto@caracterinmobiliaria.com</a
+					<a
+						href="mailto:contacto@caracterinmobiliaria.com"
+						target="_blank"
+						class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light"
 					>
+						contacto@caracterinmobiliaria.com
+					</a>
 				</div>
 				<div class="cols-span-1 md:col-span-2 border-r-0 md:border-r border-grafito border-b md:border-b-0">
-					<a href="#" class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light">
-						t. 987.456.445</a
+					<a
+						href="tel:+51987456445"
+						target="_blank"
+						class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light"
 					>
+						t. 987.456.445
+					</a>
 				</div>
 				<div class="cols-span-1 md:col-span-2">
-					<a href="#" class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light">
-						@somoscaracter</a
+					<a
+						href="#"
+						target="_blank"
+						class="h-[46px] pl-8 md:pl-0 flex justify-start md:justify-center items-center text-grafito text-[17px] md:text-lg font-light"
 					>
+						@somoscaracter
+					</a>
 				</div>
 			</div>
 		</div>

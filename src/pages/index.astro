@@ -78,7 +78,7 @@ import Place_3 from "../assets/images/place_3.png";
 					</div>
 				</div>
 			</div>
-			<Projects />
+			<Projects id="section_two" />
 			<div class="section_three bg-brandy pt-16 md:pt-36 overflow-hidden" id="section_three">
 				<div class="grid grid-cols-6 md:grid-cols-12 gap-8 pt-20 md:mb-24">
 					<div class="col-span-4 md:col-span-4 col-start-2 md:col-start-5 text-[22px] md:text-[30px] text-grafito text-center text-pretty font-light">
@@ -102,7 +102,9 @@ import Place_3 from "../assets/images/place_3.png";
 				<div class="container">
 					<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 						<div class="colspan-1 md:col-span-6 py-20">
-							<h3 class="text-[30px] md:text-[52px] text-pretty text-left text-beige font-extralight leading-none md:!leading-tight tracking-[-1.5px] md:tracking-[-2.5px]">
+							<h3
+								class="text-[30px] md:text-[52px] text-pretty text-left text-beige font-extralight leading-none md:!leading-tight tracking-[-1.5px] md:tracking-[-2.5px]"
+							>
 								Para nosotros, un proyecto inmobiliario es un proceso de profundo análisis, que no solo pensamos como negocio, sino también como una propuesta
 								que de verdad suma valor a la ciudad.
 							</h3>
@@ -144,7 +146,7 @@ import Place_3 from "../assets/images/place_3.png";
 					</div>
 				</div>
 			</div>
-			<div class="section_six py-20 bg-brandy" id="section_six">
+			<div class="section_six pt-10 py-20 bg-brandy" id="projects">
 				<div class="container">
 					<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 						<div class="col-span-1 md:col-span-8 pt-20 pb-4 md:py-20">
@@ -154,6 +156,8 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="col-span-1 md:col-span-6">
 							<a
+								href="mailto:contacto@caracterinmobiliaria.com"
+								target="_blank"
 								class="text-xl md:text-2xl text-balance text-left bg-grafito hover:bg-beige text-beige hover:text-grafito transition-all duration-300 ease-in-out w-full flex justify-center items-center h-[60px] md:h-[70px] cursor-pointer"
 							>
 								Tengo un terreno
@@ -161,6 +165,8 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="col-span-1 md:col-span-6">
 							<a
+								href="mailto:contacto@caracterinmobiliaria.com"
+								target="_blank"
 								class="text-xl md:text-2xl text-balance text-left bg-grafito hover:bg-beige text-beige hover:text-grafito transition-all duration-300 ease-in-out w-full flex justify-center items-center h-[60px] md:h-[70px] cursor-pointer"
 							>
 								Quiero comprar un depa
@@ -169,16 +175,16 @@ import Place_3 from "../assets/images/place_3.png";
 					</div>
 				</div>
 			</div>
-			<div class="section_seven bg-beige" id="section_seven">
+			<div class="section_seven bg-beige" id="who_we_are">
 				<div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-grafito">
 					<div class="col-span-1 md:col-span-6 py-12 md:pt-0 md:pb-6 flex items-end order-2 md:order-1 pl-4 pr-6 md:px-0 md:pr-20">
-						<h4 class="font-light text-[20px] md:text-[30px] text-pretty dynamic-padding tracking-[-1.5px] md:tracking-[-2.5px]">
+						<h4 class="font-light text-[20px] md:text-[30px] text-pretty dynamic-padding tracking-[-1.5px] md:tracking-[-2px]">
 							Nuestro equipo core tiene más de 13 años trabajando juntos. Hemos aprendido mucho del sector inmobiliario, analizado a fondo sus oportunidades y
 							entendido cuáles dónde hay espacio para hacer algo diferentes, necesario y relevante para la gente que quiere vivir bien.
 						</h4>
 					</div>
 					<div class="col-span-1 md:col-span-6 order-1 md:order-2">
-						<div class="h-[520px] md:h-[850px] relative overflow-hidden">
+						<div class="h-[520px] md:h-screen relative overflow-hidden">
 							<Image src={PictureTeam} alt="Picture team" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
 						</div>
 					</div>
@@ -226,7 +232,7 @@ import Place_3 from "../assets/images/place_3.png";
 					/>
 				</div>
 			</div>
-			<Footer id="contact" />
+			<Footer id="footer" />
 		</div>
 	</main>
 </Layout>
@@ -236,7 +242,6 @@ import Place_3 from "../assets/images/place_3.png";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 	gsap.registerPlugin(ScrollTrigger);
-
 </script>
 
 <style>
