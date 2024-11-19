@@ -1,0 +1,62 @@
+<div class="nav pt-0 sticky top-4 left-0 right-0 z-10 hidden md:block transition-all duration-500 ease-ease-in-out-quad">
+	<div class="container">
+		<div class="grid grid-cols-12 gap-0 border-t border-gris border-b">
+			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a href="#" class="h-[56px] flex justify-center items-center text-gris group-hover:text-beige transition-all duration-300 text-lg">Quiénes somos</a>
+			</div>
+			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a href="#" class="h-[56px] flex justify-center items-center text-gris group-hover:text-beige transition-all duration-300 text-lg">Proyectos</a>
+			</div>
+			<div class="col-span-4 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a href="#welcome" class="h-[56px] flex justify-center items-center text-gris text-lg">
+					<svg xmlns="http://www.w3.org/2000/svg" width="164" height="32" fill="none">
+						<path
+							class="fill-gris group-hover:fill-beige transition-all duration-300 ease-in-ou"
+							d="m77.652 6.69-.948-2.917L86.38.728l.916 2.92-9.644 3.042ZM11.07 10.293c4.269 0 6.898 2.354 7.405 6.63l.018.16h2.988l-.025-.202c-.694-5.755-4.576-9.19-10.385-9.19C4.648 7.69.33 12.42.33 19.464c0 7.043 4.317 11.807 10.74 11.807 5.81 0 9.693-3.448 10.385-9.224l.025-.202h-2.988l-.018.16c-.51 4.296-3.138 6.662-7.404 6.662-4.856 0-7.755-3.44-7.755-9.204 0-5.764 2.899-9.172 7.755-9.172ZM35.486 8.01h-5.638l-7.411 22.941h3.002l2.816-8.84h8.792l2.807 8.715.041.125h2.97l-7.34-22.815-.04-.126Zm-2.599 1.098 3.34 10.4h-7.12l3.308-10.4h.472ZM60.5 20.406h-2.506v-.438c2.743-.527 4.191-2.415 4.191-5.468 0-5.703-4.315-6.49-8.98-6.49h-7.667v22.941h2.985v-9.064h10.965v9.064h2.984v-8.668c0-1.298-.608-1.877-1.972-1.877Zm-1.3-5.457c0 4.044-2.265 4.336-5.994 4.336h-4.683v-8.671h4.683c3.73 0 5.995.291 5.995 4.335ZM78.42 8.01h-5.637L65.37 30.951h3.004l2.815-8.84h8.792l2.807 8.715.04.125h2.97L78.461 8.136l-.04-.126Zm-2.598 1.098 3.34 10.4h-7.12l3.308-10.4h.473Zm21.471 1.185c4.268 0 6.898 2.354 7.404 6.63l.019.16h2.987l-.025-.202c-.693-5.755-4.576-9.19-10.385-9.19-6.423 0-10.739 4.73-10.739 11.774 0 7.044 4.316 11.807 10.739 11.807 5.811 0 9.693-3.448 10.385-9.224l.025-.202h-2.987l-.019.16c-.509 4.297-3.138 6.663-7.404 6.663-4.856 0-7.755-3.44-7.755-9.204 0-5.764 2.899-9.172 7.755-9.172Zm10.377.32h7.871V30.95h2.953V10.613h7.807V8.01H107.67v2.603Zm21.373 20.338h14.343v-2.603h-11.359v-7.582h9.758v-2.603h-9.758v-7.55h11.359V8.01h-14.343v22.941Zm32.654-10.545h-2.507v-.438c2.743-.527 4.191-2.415 4.191-5.468 0-5.703-4.315-6.49-8.979-6.49h-7.667v22.941h2.984v-9.064h10.965v9.064h2.985v-8.668c0-1.298-.609-1.877-1.973-1.877h.001Zm-1.3-5.457c0 4.044-2.265 4.336-5.995 4.336h-4.683v-8.671h4.683c3.73 0 5.995.291 5.995 4.335Z"
+						></path>
+					</svg>
+				</a>
+			</div>
+			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a href="#" class="h-[56px] flex justify-center items-center text-gris group-hover:text-beige transition-all duration-300 text-lg">Servicios</a>
+			</div>
+			<div class="col-span-2 border-l border-gris border-r bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a href="#contact" class="h-[56px] flex justify-center items-center text-gris group-hover:text-beige transition-all duration-300 text-lg">Contacto</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		let lastScrollY = window.scrollY;
+		const menuSticky: HTMLElement | null = document.querySelector(".nav");
+		const welcomeSection: HTMLElement | null = document.querySelector(".welcome");
+		const carouselOffsetTop = welcomeSection ? welcomeSection?.offsetHeight : 250;
+
+		window.addEventListener("scroll", function () {
+			let currentScrollY = window.scrollY;
+
+			if (currentScrollY <= carouselOffsetTop) {
+				menuSticky?.classList.remove("hide");
+				return;
+			}
+
+			if (currentScrollY < lastScrollY) {
+				menuSticky?.classList.remove("hide");
+			} else {
+				menuSticky?.classList.add("hide");
+			}
+
+			lastScrollY = currentScrollY;
+		});
+	});
+</script>
+
+<style lang="scss">
+	.nav {
+		&.hide {
+			@apply -translate-y-[130%];
+		}
+	}
+</style>

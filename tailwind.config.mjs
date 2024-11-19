@@ -19,6 +19,18 @@ export default {
 					md: "2rem",
 				},
 			},
+			keyframes: {
+				marquee: {
+					"0%": { transform: "translateX(0%)" },
+					"100%": { transform: "translateX(calc(-100% - var(--gap, 1rem)))" },
+				},
+			},
+			animation: {
+				marquee: "marquee var(--duration, 20s) linear infinite",
+			},
+			transitionTimingFunction: {
+				"ease-in-out-quad": "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+			},
 		},
 	},
 	plugins: [],
