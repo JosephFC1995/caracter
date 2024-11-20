@@ -12,11 +12,17 @@ const { title } = Astro.props;
 <html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content="Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los espacios"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densityDpi=device-dpi, minimal-ui" />
 		<title>{title}</title>
+		<meta name="keywords" content="Carácter, caracter" />
+		<meta name="robots" content="index"/>
 		<AstroFont
 			config={[
 				{
@@ -39,6 +45,18 @@ const { title } = Astro.props;
 				},
 			]}
 		/>
+		<style>
+			#viewport {
+				overflow: hidden;
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="viewport">

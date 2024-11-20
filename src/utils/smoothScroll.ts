@@ -9,7 +9,7 @@ function smoothScroll(content: any, viewport = undefined, smoothness: number = 1
 	gsap.set(viewport || contentElement.parentNode, {
 		overflow: "hidden",
 		position: "fixed",
-		height: "100%",
+		height: "100vh",
 		width: "100%",
 		top: 0,
 		left: 0,
