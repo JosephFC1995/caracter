@@ -250,21 +250,38 @@ import Place_3 from "../assets/images/place_3.png";
 <script>
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
-	import smoothScroll from "../utils/smoothScroll";
-	import { isMobile } from "../utils/variables";
 	import CustomEase from "gsap/CustomEase";
+	import Lenis from "lenis";
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	const smoth = smoothScroll("#wrapper", undefined, isMobile ? 1.5 : 1.5);
-	let lastWidth = window.innerWidth;
-
-	window.addEventListener("resize", () => {
-		const currentWidth = window.innerWidth;
-		if (currentWidth === lastWidth) return;
-		smoth.refresh();
+	const lenis = new Lenis({
+		lerp: 0.1,
+		duration: 1.5,
 	});
 
+	lenis.on("scroll", ScrollTrigger.update);
+
+	gsap.ticker.add((time) => {
+		lenis.raf(time * 1000);
+	});
+
+	gsap.ticker.lagSmoothing(0);
+
+	const anchorLinks = [...document.querySelectorAll<HTMLAnchorElement>("a[href]")]
+		.filter((a) => a.href.includes("/#"))
+		.forEach((a) => {
+			a.addEventListener("click", (e) => {
+				e.preventDefault();
+				const href = "#" + a.href?.split("/#").at(-1);
+
+				lenis.scrollTo(href);
+			});
+		});
+
+	const customEasing = (x: number) => {
+		return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+	};
 	document.addEventListener("DOMContentLoaded", () => {
 		gsap.utils.toArray(".image-container").forEach((container) => {
 			gsap.fromTo(
@@ -273,8 +290,8 @@ import Place_3 from "../assets/images/place_3.png";
 				{ width: "0%" },
 				{
 					width: "100%",
-					duration: 2,
-					ease: CustomEase.create("custom", "M0,0 C0.25,0.1 0.25,1 1,1"),
+					duration: 3,
+					ease: customEasing,
 					scrollTrigger: {
 						trigger: container,
 						start: "top 80%",
@@ -290,11 +307,27 @@ import Place_3 from "../assets/images/place_3.png";
 	main {
 		margin: 0 auto;
 	}
-	.image-container {
-		width: 0;
-		overflow: hidden;
-		white-space: nowrap;
+	html.lenis,
+	html.lenis body {
+		height: auto;
 	}
+
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+		overflow: clip;
+	}
+
+	.lenis.lenis-smooth iframe {
+		pointer-events: none;
+	}
+
 	.dynamic-padding {
 		padding-left: calc((100vw - 640px) / 2); /* Predeterminado para el primer breakpoint */
 	}
