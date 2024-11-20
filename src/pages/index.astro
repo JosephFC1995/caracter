@@ -195,8 +195,8 @@ import Place_3 from "../assets/images/place_3.png";
 					<div class="grid grid-cols-1 md:grid-cols-12 gap-8 justify-between">
 						<div class="cols-span-1 md:col-span-5 text-grafito mb-12 md:mb-0">
 							<div>
-								<div class="image-container">
-									<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
+								<div class="image-container md:max-w-[360px]" data-width="360" data-duration="1.5">
+									<div class="h-[500px] md:h-[470px] w-full max-w-full relative overflow-hidden mb-16">
 										<Image src={Jose} alt="Jose Camborda" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
 									</div>
 								</div>
@@ -209,8 +209,8 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="cols-span-1 md:col-span-5 text-grafito md:col-start-8 mb-12 md:mb-0">
 							<div>
-								<div class="image-container">
-									<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
+								<div class="image-container md:max-w-[360px]" data-width="360" data-delay="0.65" data-duration="1.5">
+									<div class="h-[500px] md:h-[470px] w-full max-w-full relative overflow-hidden mb-16">
 										<Image
 											src={Tania}
 											alt="Tania López-Guerra"
@@ -250,7 +250,7 @@ import Place_3 from "../assets/images/place_3.png";
 <script>
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
-	import CustomEase from "gsap/CustomEase";
+	import { isMobile } from "../utils/variables";
 	import Lenis from "lenis";
 
 	gsap.registerPlugin(ScrollTrigger);
@@ -282,15 +282,20 @@ import Place_3 from "../assets/images/place_3.png";
 	const customEasing = (x: number) => {
 		return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 	};
+
 	document.addEventListener("DOMContentLoaded", () => {
-		gsap.utils.toArray(".image-container").forEach((container) => {
+		gsap.utils.toArray(".image-container").forEach((container: any) => {
+			const width = Number(container.dataset.width);
+			const delay = Number(container.dataset.delay);
+			const duration = Number(container.dataset.duration);
 			gsap.fromTo(
 				// @ts-ignore
 				container,
 				{ width: "0%" },
 				{
-					width: "100%",
-					duration: 3,
+					width: !width ? "100%" : isMobile ? "100%" : `${width}px`,
+					duration: !duration ? 2 : duration,
+					delay: !delay ? 0.5 : delay,
 					ease: customEasing,
 					scrollTrigger: {
 						trigger: container,
