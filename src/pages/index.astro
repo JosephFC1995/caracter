@@ -22,7 +22,7 @@ import Place_3 from "../assets/images/place_3.png";
 ---
 
 <Layout title="Carácter">
-	<main class="wrapper">
+	<main class="wrapper" id="wrapper">
 		<Welcome />
 		<div class="bg-beige relative pt-8" id="container-page">
 			<Navbar />
@@ -41,8 +41,10 @@ import Place_3 from "../assets/images/place_3.png";
 							<div class="flex-1 border-gris border-l"></div>
 						</div>
 						<div class="col-span-1 md:col-span-5 flex items-end -mx-4 md:mx-0">
-							<div class="w-full h-[520px] md:h-[600px] relative overflow-hidden">
-								<Image src={PictureOne} alt="Picture 1" class="w-full h-full absolute inset-0 top-1/2 -translate-y-1/2 object-cover" />
+							<div class="image-container">
+								<div class="w-full h-[520px] md:h-[600px] relative overflow-hidden">
+									<Image src={PictureOne} alt="Picture 1" class="w-full h-full absolute inset-0 top-1/2 -translate-y-1/2 object-cover" />
+								</div>
 							</div>
 						</div>
 						<div class="col-span-1 md:col-span-10 relative min-h-[200px] md:min-h-[320px] flex justify-center items-center md:border-t border-gris md:border-b">
@@ -184,7 +186,7 @@ import Place_3 from "../assets/images/place_3.png";
 						</h4>
 					</div>
 					<div class="col-span-1 md:col-span-6 order-1 md:order-2">
-						<div class="h-[520px] md:h-screen relative overflow-hidden">
+						<div class="h-[520px] md:h-dvh relative overflow-hidden">
 							<Image src={PictureTeam} alt="Picture team" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
 						</div>
 					</div>
@@ -193,8 +195,10 @@ import Place_3 from "../assets/images/place_3.png";
 					<div class="grid grid-cols-1 md:grid-cols-12 gap-8 justify-between">
 						<div class="cols-span-1 md:col-span-5 text-grafito mb-12 md:mb-0">
 							<div>
-								<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
-									<Image src={Jose} alt="Jose Camborda" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+								<div class="image-container">
+									<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
+										<Image src={Jose} alt="Jose Camborda" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+									</div>
 								</div>
 								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Jose <br /> Camborda</h2>
 								<p class="text-[20px] md:text-[23px] text-pretty font-light font-montserrat leading-tight">
@@ -205,8 +209,14 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="cols-span-1 md:col-span-5 text-grafito md:col-start-8 mb-12 md:mb-0">
 							<div>
-								<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
-									<Image src={Tania} alt="Tania López-Guerra" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+								<div class="image-container">
+									<div class="h-[500px] md:h-[470px] w-full md:w-[360px] max-w-full relative overflow-hidden mb-16">
+										<Image
+											src={Tania}
+											alt="Tania López-Guerra"
+											class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+										/>
+									</div>
 								</div>
 								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Tania <br /> López-Guerra</h2>
 								<p class="text-[20px] md:text-[23px]text-pretty font-light font-montserrat leading-tight">
@@ -240,13 +250,60 @@ import Place_3 from "../assets/images/place_3.png";
 <script>
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import smoothScroll from "../utils/smoothScroll";
+	import { isMobile } from "../utils/variables";
+	import CustomEase from "gsap/CustomEase";
 
 	gsap.registerPlugin(ScrollTrigger);
+
+	const smoth = smoothScroll("#wrapper", undefined, isMobile ? 1.5 : 1.5);
+	let lastWidth = window.innerWidth;
+
+	window.addEventListener("resize", () => {
+		const currentWidth = window.innerWidth;
+		if (currentWidth === lastWidth) return;
+		smoth.refresh();
+	});
+
+	document.addEventListener("DOMContentLoaded", () => {
+		gsap.utils.toArray(".image-container").forEach((container) => {
+			gsap.fromTo(
+				// @ts-ignore
+				container,
+				{ width: "0%" },
+				{
+					width: "100%",
+					duration: 3,
+					ease: CustomEase.create("custom", "M0,0 C0.25,0.1 0.25,1 1,1"),
+					scrollTrigger: {
+						trigger: container,
+						start: "top 80%",
+						toggleActions: "play none none none",
+					},
+				}
+			);
+		});
+	});
 </script>
 
 <style>
+	#viewport {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 	main {
 		margin: 0 auto;
+	}
+	.image-container {
+		width: 0;
+		overflow: hidden;
+		white-space: nowrap;
 	}
 	.dynamic-padding {
 		padding-left: calc((100vw - 640px) / 2); /* Predeterminado para el primer breakpoint */

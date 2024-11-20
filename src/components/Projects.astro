@@ -46,13 +46,11 @@ const id = "section_two";
 
 	let timeline = anime.timeline({ autoplay: false });
 
-	const isMobile = window.innerWidth <= 768;
-
 	const getLeftValue = () => {
-		return window.innerWidth <= 768 ? ["75%", "-230%"] : ["75%", "0"];
+		return window.innerWidth <= 768 ? ["75%", "-200%"] : ["75%", "0"];
 	};
 
-	const action_1: AnimeAnimParams = {
+	let action_1: AnimeAnimParams = {
 		targets: `#${id} #list_pictures`,
 		left: getLeftValue(),
 		duration: 1000,
@@ -72,12 +70,6 @@ const id = "section_two";
 			timeline.seek(timeline.duration * self.progress);
 		},
 	});
-
-	window.addEventListener("resize", () => {
-		action_1.left = getLeftValue();
-		timeline.restart();
-	});
-
 	const images_pictures = document.querySelectorAll(`#${id} #list_pictures > div`);
 
 	ScrollTrigger.create({
@@ -101,5 +93,14 @@ const id = "section_two";
 				animate.seek(progress * animate.duration);
 			});
 		},
+	});
+
+	let lastWidth = window.innerWidth;
+
+	window.addEventListener("resize", () => {
+		const currentWidth = window.innerWidth;
+		if (currentWidth === lastWidth) return;
+		timeline.pause();
+		timeline.restart();
 	});
 </script>
