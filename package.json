@@ -2,6 +2,7 @@
 	"name": "caracter-landing",
 	"type": "module",
 	"version": "0.0.1",
+	 "packageManager": "yarn@1.22.5",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
