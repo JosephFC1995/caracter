@@ -1,0 +1,224 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import NavbarMobil from "../components/NavbarMobil.astro";
+---
+
+<Layout title="Contacto - Quiero un depa">
+	<main class="wrapper" id="wrapper">
+		<div class="bg-beige relative pt-8" id="container-page">
+			<Navbar />
+			<div class="container mt-8 md:mt-20 mb-8 flex justify-between items-center">
+				<a href="/">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="#383833"
+						stroke-width="1.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg
+					>
+				</a>
+				<NavbarMobil alternative={true} />
+			</div>
+			<div class="container md:px-20 pb-24">
+				<h1 class="text-4xl md:text-[60px] font-light mb-8 text-grafito">Quiero un depa</h1>
+				<form method="POST" accept-charset="UTF-8" id="form" class="grid grid-cols-1 md:grid-cols-12 gap-8">
+					<div class="col-span-1 md:col-span-6">
+						<input type="text" name="name" placeholder="Nombres" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-6">
+						<input type="text" name="last_name" placeholder="Apellidos" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-12">
+						<input type="email" name="email" placeholder="Email" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-12">
+						<input type="tel" name="phone" placeholder="Teléfono" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-6">
+						<input type="text" name="district" placeholder="¿En qué distritos estás buscando?" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-6">
+						<h4>¿Cuántos dormitorios quieres?</h4>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+							<div class="col-span-1 md:col-span-1">
+								<label for="bedroom_1" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="bedrooms" value="1 dorm" required id="bedroom_1" class="hidden peer" />
+									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									1 dorm
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="bedroom_2" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="bedrooms" value="2 dorm" required id="bedroom_2" class="hidden peer" />
+									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									2 dorm
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="bedroom_3" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="bedrooms" value="3 dorm" required id="bedroom_3" class="hidden peer" />
+									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									3 dorm
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="bedroom_4" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="bedrooms" value="4 dorm" required id="bedroom_4" class="hidden peer" />
+									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									4 dorm
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-span-1 md:col-span-6">
+						<h4>¿Qué área necesitas?</h4>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+							<div class="col-span-1 md:col-span-1">
+								<label for="area_1" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" name="area" value="Menor a 40 m2" id="area_1" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Menor a 40 m2
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="area_2" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" name="area" value="Entre 80 y 100 m2" id="area_2" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Entre 80 y 100 m2
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="area_3" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" name="area" value="Entre 40 y 60 m2" id="area_3" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Entre 40 y 60 m2
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="area_4" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" name="area" value="Más de 100 m2" id="area_4" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Más de 100 m2
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="area_5" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" name="area" value="Entre 60 y 80 m2" id="area_5" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Entre 60 y 80 m2
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-span-1 md:col-span-12">
+						<input type="number" name="amount" placeholder="Presupuesto estimado en soles" class="w-full" required />
+					</div>
+					<div class="col-span-1 md:col-span-12">
+						<h4>Cuéntanos un poco más</h4>
+						<textarea
+							name="aditional"
+							id="aditional"
+							placeholder="Cuéntanos más sobre el barrio, cómo te lo imaginas, por qué buscas un ubicación en específico, qué ambientes te gustaría que tenga tu depa, que áreas comunes te gustaría que tenga el proyecto..."
+							class="w-full"
+							required></textarea>
+					</div>
+					<input type="hidden" name="_gotcha" style="display:none !important" />
+					<div class="col-span-1 md:col-span-12 flex justify-end">
+						<button
+							id="submit"
+							type="submit"
+							class="bg-grafito text-beige text-xl py-2 px-8 hover:opacity-80 transition-all duration-300 ease-in-out w-full md:w-auto"
+						>
+							Enviar
+						</button>
+					</div>
+				</form>
+			</div>
+			<Footer id="footer" />
+		</div>
+	</main>
+	<div
+		class="success-message fixed inset-0 z-10 bg-black/60 transition-all duration-300 ease-ease-in-out-quad flex flex-col gap-8 justify-center items-center text-beige opacity-0 invisible"
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="120"
+			height="120"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-circle-check"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg
+		>
+		<h3 class="text-4xl">Correo enviado</h3>
+	</div>
+</Layout>
+
+<script>
+	import emailjs from "@emailjs/browser";
+
+	emailjs.init({
+		publicKey: "nGiy3i0bDwsgLhAd4",
+		limitRate: {
+			id: "caracter-apartment",
+			throttle: 10000,
+		},
+	});
+
+	const submitButton: HTMLButtonElement | null = document.getElementById("submit") as HTMLButtonElement;
+
+	const form: HTMLFormElement = document.getElementById("form") as HTMLFormElement;
+	form.addEventListener("submit", formSubmit);
+
+	const loadingButtonSubmit = (isLoading: boolean) => {
+		if (!submitButton) return;
+		if (isLoading) {
+			submitButton.setAttribute("disabled", "disabled");
+			submitButton.innerText = "Enviando...";
+			submitButton.classList.add("loading");
+			return;
+		}
+		submitButton.removeAttribute("disabled");
+		submitButton.innerText = "Enviar";
+		submitButton.classList.remove("loading");
+	};
+
+	const showSuccessMessage = () => {
+		const successMessage: HTMLDivElement | null = document.querySelector(".success-message") as HTMLDivElement;
+		if (!successMessage) return;
+		successMessage.style.visibility = "visible";
+		successMessage.style.opacity = "1";
+		setTimeout(() => {
+			successMessage.style.visibility = "";
+			successMessage.style.opacity = "";
+		}, 3000);
+	};
+
+	async function formSubmit(e: any) {
+		e.preventDefault();
+		const formData = new FormData(e.target);
+		const formJson: any = Object.fromEntries(formData.entries());
+		formJson.area = formData.getAll("area").toString();
+		try {
+			loadingButtonSubmit(true);
+			await emailjs.send("service_rys8j0k", "template_89nr23h", {
+				...formJson,
+			});
+			e.target?.reset();
+			showSuccessMessage();
+			loadingButtonSubmit(false);
+		} catch (error) {
+			console.error(error);
+			loadingButtonSubmit(false);
+		}
+	}
+</script>

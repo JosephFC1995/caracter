@@ -1,20 +1,37 @@
 ---
-const {origin: url} = Astro.url;
+const { origin: url } = Astro.url;
+
+interface Props {
+	isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
 ---
+
 <div class="nav pt-0 sticky top-4 left-0 right-0 z-10 hidden md:block transition-all duration-500 ease-ease-in-out-quad">
 	<div class="container">
 		<div class="grid grid-cols-12 gap-0 border-t border-gris border-b">
 			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
-				<a href={url + "#projects"} class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg">Proyectos</a>
+				<a
+					href={url + "#projects"}
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg"
+				>
+					Proyectos
+				</a>
 			</div>
 			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
-				<a href={url + "#who_we_are"} class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg">
+				<a
+					href={url + "#who_we_are"}
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg"
+				>
 					Quiénes somos
 				</a>
 			</div>
 
 			<div class="col-span-4 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
-				<a href={url + "#welcome"} class="h-[56px] flex justify-center items-center text-gris text-lg">
+				<a href={url + "#welcome"} {...isHome ? { "data-lenis-scroll": true } : {}} class="h-[56px] flex justify-center items-center text-gris text-lg">
 					<svg xmlns="http://www.w3.org/2000/svg" width="164" height="32" fill="none">
 						<path
 							class="fill-gris group-hover:fill-grafito transition-all duration-300 ease-in-ou"
@@ -24,10 +41,20 @@ const {origin: url} = Astro.url;
 				</a>
 			</div>
 			<div class="col-span-2 border-l border-gris bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
-				<a href={url + "#services"} class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg">Servicios</a>
+				<a
+					href={url + "#services"}
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg"
+				>
+					Servicios
+				</a>
 			</div>
 			<div class="col-span-2 border-l border-gris border-r bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
-				<a href={url + "#contact"} class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg">Contacto</a>
+				<a
+					href={url + "#contact"}
+					data-lenis-scroll
+					class="h-[56px] flex justify-center items-center text-gris group-hover:text-grafito transition-all duration-300 text-lg">Contacto</a
+				>
 			</div>
 		</div>
 	</div>

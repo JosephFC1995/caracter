@@ -1,0 +1,124 @@
+---
+const { origin: url } = Astro.url;
+
+interface Props {
+	isHome?: boolean;
+	floating?: boolean;
+	alternative?: boolean;
+}
+
+const { isHome = false, floating = false, alternative = false } = Astro.props;
+---
+
+<div
+	class="w-[60px] h-[60px] relative flex md:hidden justify-center items-center z-10 cursor-pointer"
+	class:list={[{ "!absolute top-4 right-4": floating }]}
+	id="open_menu_mobil"
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="24"
+		height="24"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke={alternative ? "#383833" : "#EBE8DC"}
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		class="lucide lucide-menu"
+		><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
+	>
+</div>
+
+<div class="pt-0 fixed inset-0 z-40 md:block transition-all duration-300 ease-ease-in-out-quad bg-beige invisible opacity-0" id="menu_mobil_container">
+	<div class="container px-0">
+		<div class="flex mt-10 justify-end">
+			<div class="w-[60px] h-[60px] relative border border-b-0 border-grafito flex justify-center items-center" id="close_menu_mobil">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="#383833"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+				>
+			</div>
+		</div>
+		<div class="grid grid-cols-1 gap-0">
+			<div class="col-span-1 border-b border-t border-grafito bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a
+					href={url + "#projects"}
+					data-lenis-movil
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-grafito group-hover:text-grafito transition-all duration-300 text-lg"
+				>
+					Proyectos
+				</a>
+			</div>
+			<div class="col-span-1 border-b border-grafito bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a
+					href={url + "#who_we_are"}
+					data-lenis-movil
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-grafito group-hover:text-grafito transition-all duration-300 text-lg"
+				>
+					Quiénes somos
+				</a>
+			</div>
+
+			<div class="col-span-1 border-b border-grafito bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a
+					href={url + "#services"}
+					data-lenis-movil
+					{...isHome ? { "data-lenis-scroll": true } : {}}
+					class="h-[56px] flex justify-center items-center text-grafito group-hover:text-grafito transition-all duration-300 text-lg"
+				>
+					Servicios
+				</a>
+			</div>
+			<div class="col-span-1 border-b border-grafito border-r bg-beige hover:bg-brandy group transition-all duration-300 ease-in-out">
+				<a
+					href={url + "#contact"}
+					data-lenis-movil
+					data-lenis-scroll
+					class="h-[56px] flex justify-center items-center text-grafito group-hover:text-grafito transition-all duration-300 text-lg">Contacto</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	const openMenuMobil: HTMLElement | null = document.querySelector("#open_menu_mobil");
+	const closeMenuMobil: HTMLElement | null = document.querySelector("#close_menu_mobil");
+	const menuMobilContainer: HTMLElement | null = document.querySelector("#menu_mobil_container");
+
+	openMenuMobil?.addEventListener("click", () => {
+		menuMobilContainer?.classList.add("!visible");
+		menuMobilContainer?.classList.add("!opacity-100");
+	});
+
+	closeMenuMobil?.addEventListener("click", () => {
+		menuMobilContainer?.classList.remove("!visible");
+		menuMobilContainer?.classList.remove("!opacity-100");
+	});
+
+	[...document.querySelectorAll<HTMLAnchorElement>("a[href][data-lenis-movil]")]
+		.filter((a) => a.href.includes("/#"))
+		.forEach((a) => {
+			a.addEventListener("click", (e) => {
+				menuMobilContainer?.classList.remove("!visible");
+				menuMobilContainer?.classList.remove("!opacity-100");
+			});
+		});
+</script>
+
+<style>
+	.nav.hide {
+		@apply -translate-y-[130%];
+	}
+</style>

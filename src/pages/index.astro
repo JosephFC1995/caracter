@@ -20,9 +20,9 @@ import Place_3 from "../assets/images/place_3.png";
 
 <Layout title="Carácter">
 	<main class="wrapper" id="wrapper">
-		<Welcome />
+		<Welcome isHome={true} />
 		<div class="bg-beige relative pt-8" id="container-page">
-			<Navbar />
+			<Navbar isHome={true} />
 			<div class="section_one pt-0 pb-8" id="section_one">
 				<div class="container">
 					<div class="grid grid-cols-1 md:grid-cols-12">
@@ -156,8 +156,7 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="col-span-1 md:col-span-6">
 							<a
-								href="mailto:contacto@caracterinmobiliaria.com"
-								target="_blank"
+								href="/contact-have-land"
 								class="text-xl md:text-2xl text-balance text-left bg-grafito hover:bg-beige text-beige hover:text-grafito transition-all duration-300 ease-in-out w-full flex justify-center items-center h-[60px] md:h-[70px] cursor-pointer"
 							>
 								Tengo un terreno
@@ -165,8 +164,7 @@ import Place_3 from "../assets/images/place_3.png";
 						</div>
 						<div class="col-span-1 md:col-span-6">
 							<a
-								href="mailto:contacto@caracterinmobiliaria.com"
-								target="_blank"
+								href="/contact-want-advice"
 								class="text-xl md:text-2xl text-balance text-left bg-grafito hover:bg-beige text-beige hover:text-grafito transition-all duration-300 ease-in-out w-full flex justify-center items-center h-[60px] md:h-[70px] cursor-pointer"
 							>
 								Quiero comprar un depa
@@ -252,30 +250,6 @@ import Place_3 from "../assets/images/place_3.png";
 	import Lenis from "lenis";
 
 	gsap.registerPlugin(ScrollTrigger);
-
-	const lenis = new Lenis({
-		lerp: 0.1,
-		duration: 1.5,
-	});
-
-	lenis.on("scroll", ScrollTrigger.update);
-
-	gsap.ticker.add((time) => {
-		lenis.raf(time * 1000);
-	});
-
-	gsap.ticker.lagSmoothing(0);
-
-	const anchorLinks = [...document.querySelectorAll<HTMLAnchorElement>("a[href]")]
-		.filter((a) => a.href.includes("/#"))
-		.forEach((a) => {
-			a.addEventListener("click", (e) => {
-				e.preventDefault();
-				const href = "#" + a.href?.split("/#").at(-1);
-
-				lenis.scrollTo(href);
-			});
-		});
 
 	const customEasing = (x: number) => {
 		return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;

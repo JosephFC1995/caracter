@@ -53,6 +53,38 @@ const { title } = Astro.props;
 	</body>
 </html>
 
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import Lenis from "lenis";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const lenis = new Lenis({
+		lerp: 0.1,
+		duration: 1.5,
+	});
+
+	lenis.on("scroll", ScrollTrigger.update);
+
+	gsap.ticker.add((time) => {
+		lenis.raf(time * 1000);
+	});
+
+	gsap.ticker.lagSmoothing(0);
+
+	const anchorLinks = [...document.querySelectorAll<HTMLAnchorElement>("a[href][data-lenis-scroll]")]
+		.filter((a) => a.href.includes("/#"))
+		.forEach((a) => {
+			a.addEventListener("click", (e) => {
+				e.preventDefault();
+				const href = "#" + a.href?.split("/#").at(-1);
+
+				lenis.scrollTo(href);
+			});
+		});
+</script>
+
 <style is:global>
 	main {
 		margin: 0 auto;
@@ -109,5 +141,23 @@ const { title } = Astro.props;
 	strong,
 	b {
 		font-weight: 600;
+	}
+
+	form input[type="text"],
+	form input[type="email"],
+	form input[type="tel"],
+	form input[type="number"],
+	form textarea {
+		@apply bg-transparent border-b border-b-grafito placeholder:text-grafito/70 text-grafito  h-[48px] outline-none text-[18px];
+	}
+	form textarea  {
+		@apply h-auto resize-y min-h-[100px];
+		field-sizing: content;
+	}
+	form h4 {
+		@apply text-grafito text-[23px] mb-6 mt-2;
+	}
+	form input[type="radio"] {
+
 	}
 </style>

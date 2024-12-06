@@ -1,12 +1,20 @@
 ---
+import NavbarMobil from "./NavbarMobil.astro";
 import Logo from "./svg/logo.astro";
+
+interface Props {
+	isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
 ---
 
 <div class="welcome min-h-dvh bg-grafito flex justify-center items-center relative" id="welcome">
+	<NavbarMobil floating={true} isHome={isHome} />
 	<div class="container">
 		<div class="flex justify-center flex-col items-center gap-4 md:gap-16">
 			<Logo id="caracter_welcome_logo" />
-			<svg width="1050" height="40" fill="none" viewBox="0 0 936 24" class="w-full md:w-auto  h-auto" id="real_state">
+			<svg width="1050" height="40" fill="none" viewBox="0 0 936 24" class="w-full md:w-auto h-auto" id="real_state">
 				<g fill="transparent" stroke="transparent" id="g_1">
 					<path d="M0 23.328V1h3.238v22.328H0Z"></path>
 					<path d="M73.795 23.328V1h2.568L91.21 19.31h-1.34V.887h3.238v22.329h-2.68L75.581 4.796h1.451v18.42h-3.237v.112Z"></path>
