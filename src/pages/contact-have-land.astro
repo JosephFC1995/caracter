@@ -89,9 +89,10 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 
 	emailjs.init({
 		publicKey: "nGiy3i0bDwsgLhAd4",
+		blockHeadless: true,
 		limitRate: {
 			id: "caracter-apartment",
-			throttle: 10000,
+			throttle: 20000,
 		},
 	});
 
