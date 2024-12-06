@@ -5,10 +5,10 @@ interface Props {
 	id?: string;
 }
 
-const { width = 1128, height = 209, id = undefined } = Astro.props;
+const { width = 1050, height = 209, id = undefined } = Astro.props;
 ---
 
-<svg width={width} height={height} fill="none" viewBox="0 0 1128 209" id={id}>
+<svg width={width} height={height} fill="none" viewBox="0 0 1128 209" id={id} class="w-full md:w-auto h-auto">
 	<defs>
 		<clipPath id="a">
 			<path fill="#fff" d="M0 0h1128v209H0z"></path>

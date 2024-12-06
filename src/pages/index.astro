@@ -27,10 +27,9 @@ import Place_3 from "../assets/images/place_3.png";
 				<div class="container">
 					<div class="grid grid-cols-1 md:grid-cols-12">
 						<div class="col-span-1 md:col-span-4 min-h-auto md:min-h-[700px] flex flex-col justify-center pt-10 pb-16 md:py-0">
-							<h3 class="text-[30px] md:text-5xl text-grafito text-balance font-medium mb-6">Vivir bien es una decisión.</h3>
-							<p class="text-grafito text-pretty text-xl md:text-[23px] font-light">
-								Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los
-								espacios
+							<p class="text-grafito text-pretty text-xl md:text-[23px] font-light pr-4 md:pr-20 max-w-[410px] tracking-[-0.25px]">
+								Somos una inmobiliaria que ha decidido NO hacer más de lo mismo, porque tenemos claro que: Vivir bien es una decisión y queremos estar a la
+								altura de todas las personas que quieren vivir bien.
 							</p>
 						</div>
 						<div class="col-span-1 md:col-span-3 hidden md:flex flex-col">
@@ -44,11 +43,13 @@ import Place_3 from "../assets/images/place_3.png";
 								</div>
 							</div>
 						</div>
-						<div class="col-span-1 md:col-span-10 relative min-h-[200px] md:min-h-[320px] flex justify-center items-center md:border-t border-gris md:border-b">
+						<div
+							class="col-span-1 md:col-span-10 relative py-10 md:py-0 min-h-[auto] md:min-h-[320px] flex justify-center items-center md:border-t border-gris md:border-b"
+						>
 							<div class="block md:hidden absolute top-0 bottom-0 w-[1px] bg-gris right-[20%]"></div>
-							<div class="max-w-[198px] md:max-w-[264px] -ml-8 md:ml-0">
-								<h3 class="font-light text-[20px] md:text-[23px] text-balance md:text-pretty text-grafito">
-									y pensamos en cosas tan simples pero tan <strong>importantes</strong>
+							<div class="max-w-[280px] md:max-w-[360px] -ml-8 md:ml-0">
+								<h3 class="font-light text-[20px] md:text-[23px] text-balance md:text-pretty text-grafito tracking-[-0.25px]">
+									Decidir bien el barrio, decidir bien cada aspecto de la arquitectura, darle importancia a la luz y la distribución de los espacios.
 								</h3>
 							</div>
 						</div>
@@ -68,8 +69,8 @@ import Place_3 from "../assets/images/place_3.png";
 									class="col-span-1 md:col-span-3 relative min-h-[200px] md:min-h-[350px] px-4 flex justify-center items-center order-3 md:order-4 py-12 md:py-0"
 								>
 									<div class="block md:hidden absolute top-0 bottom-0 w-[1px] bg-gris left-[30%]"></div>
-									<h4 class="font-light text-[20px] md:text-[23px] text-pretty text-grafito pl-[40%] md:pl-3">
-										como qué tan cerca queremos tener el lugar donde tomaremos el café cada mañana;
+									<h4 class="font-light text-[20px] md:text-[23px] text-pretty text-grafito pl-[40%] md:pl-0 tracking-[-0.25px]">
+										Porque estamos hablando del lugar donde vas a pasar una buena parte de tu vida.
 									</h4>
 								</div>
 							</div>
@@ -128,7 +129,7 @@ import Place_3 from "../assets/images/place_3.png";
 						<div class="col-span-1 md:col-span-4 min-h-[280px] md:min-h-[250px] md:aspect-square flex justify-center items-center px-8 relative">
 							<div class="h-[1px] bg-gris w-[100%] absolute bottom-0 left-0 right-0"></div>
 							<p class="text-[20px] md:text-[23px] text-pretty font-light px-12 md:px-0">
-								Porque es ahí donde empieza una nueva etapa en la vida de los que deciden mudarse a un depa con <strong>Carácter.</strong>
+								Con la entrega empieza una nueva etapa en la vida de los que deciden mudarse a un depa con <strong>Carácter.</strong>
 							</p>
 						</div>
 						<div class="col-span-1 md:col-span-4 min-h-[280px] md:min-h-[250px] md:aspect-square hidden md:flex justify-center items-center px-8 relative">
@@ -305,61 +306,3 @@ import Place_3 from "../assets/images/place_3.png";
 	});
 </script>
 
-<style>
-	main {
-		margin: 0 auto;
-	}
-	html.lenis,
-	html.lenis body {
-		height: auto;
-	}
-
-	.lenis.lenis-smooth {
-		scroll-behavior: auto !important;
-	}
-
-	.lenis.lenis-smooth [data-lenis-prevent] {
-		overscroll-behavior: contain;
-	}
-
-	.lenis.lenis-stopped {
-		overflow: clip;
-	}
-
-	.lenis.lenis-smooth iframe {
-		pointer-events: none;
-	}
-
-	.dynamic-padding {
-		padding-left: calc((100vw - 640px) / 2); /* Predeterminado para el primer breakpoint */
-	}
-
-	@media (min-width: 768px) {
-		.dynamic-padding {
-			padding-left: calc((100vw - 700px) / 2);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.dynamic-padding {
-			padding-left: calc((100vw - 965px) / 2);
-		}
-	}
-
-	@media (min-width: 1280px) {
-		.dynamic-padding {
-			padding-left: calc((100vw - 1208px) / 2);
-		}
-	}
-
-	@media (min-width: 1536px) {
-		.dynamic-padding {
-			padding-left: calc((100vw - 1462px) / 2);
-		}
-	}
-
-	strong,
-	b {
-		font-weight: 600;
-	}
-</style>

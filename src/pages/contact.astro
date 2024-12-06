@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+---
+
+<Layout title="Contact">
+	<main class="wrapper" id="wrapper">
+		<div class="bg-beige relative pt-8" id="container-page">
+			<Navbar />
+			<div class="container py-24">
+				<form method="POST" accept-charset="UTF-8" id="form">
+					<input type="email" name="email" placeholder="Your email" />
+					<input type="text" name="from_name" placeholder="Your name" />
+					<input type="hidden" name="_gotcha" style="display:none !important" />
+					<button type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	import emailjs from "@emailjs/browser";
+
+	emailjs.init({
+		publicKey: "nGiy3i0bDwsgLhAd4",
+		limitRate: {
+			id: "caracter",
+			throttle: 10000,
+		},
+	});
+
+	const form: HTMLFormElement = document.getElementById("form") as HTMLFormElement;
+	form.addEventListener("submit", formSubmit);
+
+	function formSubmit(e: any) {
+		e.preventDefault();
+		const formData = new FormData(e.target);
+		const formJson = Object.fromEntries(formData);
+
+		try {
+			const response = emailjs.send("service_rys8j0k", "template_lf1q3b5", {
+				...formJson,
+				from_name: "Pepe",
+				message: "Mensaje nuevo",
+				reply_to: "trenectar@hotmai.com",
+			});
+			console.log("SUCCESS!", response);
+		} catch (error) {
+			console.error(error);
+		}
+	}
+</script>

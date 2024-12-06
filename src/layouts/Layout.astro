@@ -52,3 +52,62 @@ const { title } = Astro.props;
 		</div>
 	</body>
 </html>
+
+<style>
+	main {
+		margin: 0 auto;
+	}
+	html.lenis,
+	html.lenis body {
+		height: auto;
+	}
+
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+		overflow: clip;
+	}
+
+	.lenis.lenis-smooth iframe {
+		pointer-events: none;
+	}
+
+	.dynamic-padding {
+		padding-left: calc((100vw - 640px) / 2); /* Predeterminado para el primer breakpoint */
+	}
+
+	@media (min-width: 768px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 700px) / 2);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 965px) / 2);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 1208px) / 2);
+		}
+	}
+
+	@media (min-width: 1536px) {
+		.dynamic-padding {
+			padding-left: calc((100vw - 1462px) / 2);
+		}
+	}
+
+	strong,
+	b {
+		font-weight: 600;
+	}
+</style>

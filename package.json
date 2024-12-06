@@ -2,7 +2,7 @@
 	"name": "caracter-landing",
 	"type": "module",
 	"version": "0.0.1",
-	 "packageManager": "yarn@1.22.5",
+	"packageManager": "yarn@1.22.5",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
 		"@astrojs/tailwind": "^5.1.2",
+		"@emailjs/browser": "^4.4.1",
 		"animejs": "^3.2.2",
 		"astro": "^4.16.12",
 		"astro-font": "^0.1.81",

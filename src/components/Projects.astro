@@ -10,11 +10,13 @@ const id = "section_two";
 
 <div class="section_two bg-grafito py-16 overflow-hidden" id={id}>
 	<div class="container">
-		<div class="flex flex-col gap-12 mb-24 md:mb-[200px]">
-			<p class="font-light text-[20px] md:text-[23px] text-beige max-w-[275px] text-pretty">porque todo eso influye directamente en nuestra:</p>
+		<div class="flex flex-col gap-12 mb-12 md:mb-12">
+			<p class="font-light text-[20px] md:text-[23px] text-beige max-w-[325px] text-pretty">
+				Y todas esas decisiones, grandes y pequeñas, afectan directamente nuestra
+			</p>
 			<h2 class="text-[77px] md:text-[223px] text-beige tracking-tight leading-none">felicidad y bienestar.</h2>
 		</div>
-		<div class="relative min-h-[500px]" id="container-pictures">
+		<!-- <div class="relative min-h-[500px]" id="container-pictures">
 			<div class="absolute top-0 left-[75%] bottom-0 flex gap-4" id="list_pictures">
 				<div class="min-h-[500px] w-[272px] scale-[0.8]">
 					<Image src={Photo_1} alt="Picture 1" class="w-full h-full object-cover" />
@@ -32,75 +34,75 @@ const id = "section_two";
 					<Image src={Photo_4} alt="Picture 1" class="w-full h-full object-cover" />
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 
 <script>
-	const id = "section_two";
-	import anime, { type AnimeAnimParams } from "animejs";
-	import { gsap } from "gsap";
-	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	// const id = "section_two";
+	// import anime, { type AnimeAnimParams } from "animejs";
+	// import { gsap } from "gsap";
+	// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-	gsap.registerPlugin(ScrollTrigger);
+	// gsap.registerPlugin(ScrollTrigger);
 
-	let timeline = anime.timeline({ autoplay: false });
+	// let timeline = anime.timeline({ autoplay: false });
 
-	const getLeftValue = () => {
-		return window.innerWidth <= 768 ? ["75%", "-200%"] : ["75%", "0"];
-	};
+	// const getLeftValue = () => {
+	// 	return window.innerWidth <= 768 ? ["75%", "-200%"] : ["75%", "0"];
+	// };
 
-	let action_1: AnimeAnimParams = {
-		targets: `#${id} #list_pictures`,
-		left: getLeftValue(),
-		duration: 1000,
-		delay: 0,
-		easing: "easeInOutQuad",
-	};
+	// let action_1: AnimeAnimParams = {
+	// 	targets: `#${id} #list_pictures`,
+	// 	left: getLeftValue(),
+	// 	duration: 1000,
+	// 	delay: 0,
+	// 	easing: "easeInOutQuad",
+	// };
 
-	timeline.add(action_1);
+	// timeline.add(action_1);
 
-	ScrollTrigger.create({
-		trigger: `#container-pictures`,
-		start: "center center",
-		end: "+=2000",
-		pin: true,
-		scrub: true,
-		onUpdate: (self) => {
-			timeline.seek(timeline.duration * self.progress);
-		},
-	});
-	const images_pictures = document.querySelectorAll(`#${id} #list_pictures > div`);
+	// ScrollTrigger.create({
+	// 	trigger: `#container-pictures`,
+	// 	start: "center center",
+	// 	end: "+=2000",
+	// 	pin: true,
+	// 	scrub: true,
+	// 	onUpdate: (self) => {
+	// 		timeline.seek(timeline.duration * self.progress);
+	// 	},
+	// });
+	// const images_pictures = document.querySelectorAll(`#${id} #list_pictures > div`);
 
-	ScrollTrigger.create({
-		trigger: `#container-pictures`,
-		start: "center center",
-		end: "+=1500",
-		scrub: true,
-		onUpdate: (self: ScrollTrigger) => {
-			const triggerStep = 0.2;
-			const progress = self.progress;
-			images_pictures.forEach((element, index) => {
-				const activationPoint = index * triggerStep;
-				if (activationPoint > progress) return;
-				const animate = anime({
-					targets: element,
-					scale: [0.8, 1],
-					easing: "easeInOutQuad",
-					duration: 1000,
-					autoplay: false,
-				});
-				animate.seek(progress * animate.duration);
-			});
-		},
-	});
+	// ScrollTrigger.create({
+	// 	trigger: `#container-pictures`,
+	// 	start: "center center",
+	// 	end: "+=1500",
+	// 	scrub: true,
+	// 	onUpdate: (self: ScrollTrigger) => {
+	// 		const triggerStep = 0.2;
+	// 		const progress = self.progress;
+	// 		images_pictures.forEach((element, index) => {
+	// 			const activationPoint = index * triggerStep;
+	// 			if (activationPoint > progress) return;
+	// 			const animate = anime({
+	// 				targets: element,
+	// 				scale: [0.8, 1],
+	// 				easing: "easeInOutQuad",
+	// 				duration: 1000,
+	// 				autoplay: false,
+	// 			});
+	// 			animate.seek(progress * animate.duration);
+	// 		});
+	// 	},
+	// });
 
-	let lastWidth = window.innerWidth;
+	// let lastWidth = window.innerWidth;
 
-	window.addEventListener("resize", () => {
-		const currentWidth = window.innerWidth;
-		if (currentWidth === lastWidth) return;
-		timeline.pause();
-		timeline.restart();
-	});
+	// window.addEventListener("resize", () => {
+	// 	const currentWidth = window.innerWidth;
+	// 	if (currentWidth === lastWidth) return;
+	// 	timeline.pause();
+	// 	timeline.restart();
+	// });
 </script>
