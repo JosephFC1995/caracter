@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import NavbarMobil from "../components/NavbarMobil.astro";
 ---
 
-<Layout title="Contacto - Quiero asesoría">
+<Layout title="Contáctanos">
 	<main class="wrapper" id="wrapper">
 		<div class="bg-beige relative pt-8" id="container-page">
 			<Navbar />
@@ -27,8 +27,27 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 				<NavbarMobil alternative={true} />
 			</div>
 			<div class="container md:px-20 pb-24">
-				<h1 class="text-4xl md:text-[60px] font-light mb-8 text-grafito">Quiero asesoría</h1>
+				<h1 class="text-4xl md:text-[60px] font-light mb-12 text-grafito">Contáctanos</h1>
 				<form method="POST" accept-charset="UTF-8" id="form" class="grid grid-cols-1 md:grid-cols-12 gap-8">
+					<div class="col-span-1 md:col-span-12">
+						<h4 id="source-title">¿Cómo podemos ayudarte?</h4>
+						<div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+							<div class="col-span-1 md:col-span-1">
+								<label for="source_1" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="source" value="Tengo un terreno" id="source_1" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Tengo un terreno
+								</label>
+							</div>
+							<div class="col-span-1 md:col-span-1">
+								<label for="source_2" class="inline-flex items-center gap-2 cursor-pointer">
+									<input type="radio" name="source" value="Quiero asesoría" id="source_2" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Quiero asesoría
+								</label>
+							</div>
+						</div>
+					</div>
 					<div class="col-span-1 md:col-span-6">
 						<input type="text" name="name" placeholder="Nombres" class="w-full" required />
 					</div>
@@ -52,7 +71,11 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 					</div>
 					<input type="hidden" name="_gotcha" style="display:none !important" />
 					<div class="col-span-1 md:col-span-12 flex justify-end">
-						<button id="submit" type="submit" class="bg-grafito text-beige text-xl py-2 px-8 hover:opacity-80 transition-all duration-300 ease-in-out w-full md:w-auto">
+						<button
+							id="submit"
+							type="submit"
+							class="bg-grafito text-beige text-xl py-2 px-8 hover:opacity-80 transition-all duration-300 ease-in-out w-full md:w-auto"
+						>
 							Enviar
 						</button>
 					</div>
@@ -123,9 +146,16 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 
 	async function formSubmit(e: any) {
 		e.preventDefault();
+		document.getElementById("source-title")?.classList.remove("text-red-500");
 		const formData = new FormData(e.target);
 		const formJson: any = Object.fromEntries(formData.entries());
-		formJson.source = "Quiero asesoría";
+		if (!formJson.source) {
+			const sourceTitle: HTMLHeadingElement | null = document.getElementById("source-title") as HTMLHeadingElement;
+			if (!sourceTitle) return;
+			window.scrollTo(0, sourceTitle?.offsetTop - 100);
+			sourceTitle.classList.add("text-red-500");
+			return;
+		}
 		try {
 			loadingButtonSubmit(true);
 			await emailjs.send("service_rys8j0k", "template_i5qz508", {

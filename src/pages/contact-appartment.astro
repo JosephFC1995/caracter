@@ -45,40 +45,40 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 						<input type="text" name="district" placeholder="¿En qué distritos estás buscando?" class="w-full" required />
 					</div>
 					<div class="col-span-1 md:col-span-6">
-						<h4>¿Cuántos dormitorios quieres?</h4>
+						<h4 id="bedrooms-title">¿Cuántos dormitorios quieres?</h4>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div class="col-span-1 md:col-span-1">
 								<label for="bedroom_1" class="inline-flex items-center gap-2 cursor-pointer">
-									<input type="radio" name="bedrooms" value="1 dorm" required id="bedroom_1" class="hidden peer" />
-									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									<input type="checkbox" name="bedrooms" value="1 dorm" id="bedroom_1" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
 									1 dorm
 								</label>
 							</div>
 							<div class="col-span-1 md:col-span-1">
 								<label for="bedroom_2" class="inline-flex items-center gap-2 cursor-pointer">
-									<input type="radio" name="bedrooms" value="2 dorm" required id="bedroom_2" class="hidden peer" />
-									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									<input type="checkbox" name="bedrooms" value="2 dorm" id="bedroom_2" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
 									2 dorm
 								</label>
 							</div>
 							<div class="col-span-1 md:col-span-1">
 								<label for="bedroom_3" class="inline-flex items-center gap-2 cursor-pointer">
-									<input type="radio" name="bedrooms" value="3 dorm" required id="bedroom_3" class="hidden peer" />
-									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									<input type="checkbox" name="bedrooms" value="3 dorm" id="bedroom_3" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
 									3 dorm
 								</label>
 							</div>
 							<div class="col-span-1 md:col-span-1">
 								<label for="bedroom_4" class="inline-flex items-center gap-2 cursor-pointer">
-									<input type="radio" name="bedrooms" value="4 dorm" required id="bedroom_4" class="hidden peer" />
-									<span class="w-5 h-5 rounded-full border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
-									4 dorm
+									<input type="checkbox" name="bedrooms" value="Más de 3 dorm" id="bedroom_4" class="hidden peer" />
+									<span class="w-5 h-5 rounded border border-grafito peer-checked:bg-brandy peer-checked:border-grafito"></span>
+									Más de 3 dorm
 								</label>
 							</div>
 						</div>
 					</div>
 					<div class="col-span-1 md:col-span-6">
-						<h4>¿Qué área necesitas?</h4>
+						<h4 id="area-title">¿Qué área necesitas?</h4>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div class="col-span-1 md:col-span-1">
 								<label for="area_1" class="inline-flex items-center gap-2 cursor-pointer">
@@ -206,9 +206,27 @@ import NavbarMobil from "../components/NavbarMobil.astro";
 
 	async function formSubmit(e: any) {
 		e.preventDefault();
+		document.getElementById("bedrooms-title")?.classList.remove("text-red-500");
+		document.getElementById("area-title")?.classList.remove("text-red-500");
 		const formData = new FormData(e.target);
 		const formJson: any = Object.fromEntries(formData.entries());
-		formJson.area = formData.getAll("area").toString();
+		if (formData.getAll("bedrooms").length === 0) {
+			const bedroomsTitle: HTMLHeadingElement | null = document.getElementById("bedrooms-title") as HTMLHeadingElement;
+			if (!bedroomsTitle) return;
+			window.scrollTo(0, bedroomsTitle?.offsetTop - 100);
+			bedroomsTitle.classList.add("text-red-500");
+			return;
+		}
+		if (formData.getAll("area").length === 0) {
+			const areaTitle: HTMLHeadingElement | null = document.getElementById("area-title") as HTMLHeadingElement;
+			if (!areaTitle) return;
+			window.scrollTo(0, areaTitle?.offsetTop - 100);
+			areaTitle?.classList.add("text-red-500");
+			return;
+		}
+
+		formJson.area = formData.getAll("area").join(" - ");
+		formJson.bedrooms = formData.getAll("bedrooms").join(" - ");
 		try {
 			loadingButtonSubmit(true);
 			await emailjs.send("service_rys8j0k", "template_89nr23h", {
