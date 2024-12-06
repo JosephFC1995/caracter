@@ -1,38 +1,47 @@
 ---
 import LogoCaracter from "./svg/logo_caracter.astro";
 
-const { id = "footer" } = Astro.props;
+interface Props {
+	id: string;
+	hideServices?: boolean;
+}
+
+const { id = "footer", hideServices = false } = Astro.props;
 ---
 
 <footer id={id} class="footer pb-8 pt-20 bg-grafito">
 	<div class="container" id="services">
-		<h2
-			class="text-[43px] md:text-6xl text-pretty font-extralight text-beige mb-12 md:mb-18 leading-tight md:leading-tight tracking-[-1.5px] md:tracking-[-2.5px]"
-		>
-			¿Quieres hacer más eficiente un proyecto inmobiliario? También podemos ayudarte con eso.
-		</h2>
-		<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-14 md:mb-16">
-			<div class="cols-span-1 md:col-span-5">
-				<p class="font-extralight text-[23px] text-pretty text-beige font-montserrat leading-tight">
-					Si lo que estás buscando no es vender tu terreno ni comprar un depa, nuestro expertise también nos permite acompañarte a tomar mejores decisiones en
-					un proceso de conceptualización y valoración de proyectos inmobiliarios.
-				</p>
-			</div>
-			<div class="cols-span-1 md:col-span-5 md:col-start-7">
-				<ul class="font-semibold text-[23px] text-pretty text-beige font-montserrat leading-tight mb-12 md:mb-4 list-disc list-inside">
-					<li>Evaluación de terrenos</li>
-					<li>Due dilligence inmobiliario</li>
-					<li>Revisión de solución arquitectónica</li>
-					<li>Validación de oferta y demanda</li>
-				</ul>
-				<a
-					href="/contact"
-					class="text-xl md:text-2xl text-beige hover:text-grafito border border-beige hover:bg-beige flex justify-center items-center h-[60px] md:h-[50px] cursor-pointer transition-all duration-300 ease-in-out"
+		{
+			!hideServices &&
+				<h2
+					class="text-[43px] md:text-6xl text-pretty font-extralight text-beige mb-12 md:mb-18 leading-tight md:leading-tight tracking-[-1.5px] md:tracking-[-2.5px]"
 				>
-					Quiero saber más
-				</a>
-			</div>
-		</div>
+					¿Quieres hacer más eficiente un proyecto inmobiliario? También podemos ayudarte con eso.
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-14 md:mb-16">
+					<div class="cols-span-1 md:col-span-5">
+						<p class="font-extralight text-[23px] text-pretty text-beige font-montserrat leading-tight">
+							Si lo que estás buscando no es vender tu terreno ni comprar un depa, nuestro expertise también nos permite acompañarte a tomar mejores decisiones en
+							un proceso de conceptualización y valoración de proyectos inmobiliarios.
+						</p>
+					</div>
+					<div class="cols-span-1 md:col-span-5 md:col-start-7">
+						<ul class="font-semibold text-[23px] text-pretty text-beige font-montserrat leading-tight mb-12 md:mb-4 list-disc list-inside">
+							<li>Evaluación de terrenos</li>
+							<li>Due dilligence inmobiliario</li>
+							<li>Revisión de solución arquitectónica</li>
+							<li>Validación de oferta y demanda</li>
+						</ul>
+						<a
+							href="/contact"
+							class="text-xl md:text-2xl text-beige hover:text-grafito border border-beige hover:bg-beige flex justify-center items-center h-[60px] md:h-[50px] cursor-pointer transition-all duration-300 ease-in-out"
+						>
+							Quiero saber más
+						</a>
+					</div>
+				</div>
+		}
+		
 		<div class="bg-brandy pb-0 md:pb-8 p-8" id="contact">
 			<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
 				<div class="cols-span-1 md:col-span-6">
