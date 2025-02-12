@@ -88,7 +88,7 @@ import Place_3 from "../assets/images/place_3.png";
 				<div class="grid grid-cols-6 md:grid-cols-12 gap-8 pt-20 md:mb-24">
 					<div class="col-span-4 md:col-span-4 col-start-2 md:col-start-5 text-[22px] md:text-[30px] text-grafito text-center text-pretty font-normal">
 						<p class="mb-16 text-[22px] md:text-[30px]">Aunque cada barrio tiene su historia, no todos los barrios son <strong>inolvidables</strong>.</p>
-						<p class="text-[22px] md:text-[30px]">Y si bien cada edifico tiene su estilo, no todos los edificios tienen:</p>
+						<p class="text-[22px] md:text-[30px]">Y si bien cada edificio tiene su estilo, no todos los edificios tienen:</p>
 					</div>
 				</div>
 				<div class="h-[318px] md:h-[640px] relative flex [--duration:30s] [--gap:6rem] translate-y-4 gap-32">
@@ -96,7 +96,7 @@ import Place_3 from "../assets/images/place_3.png";
 						Array(4)
 							.fill(0)
 							.map((_, i) => (
-								<div class="flex animate-marquee shrink-0 justify-around whitespace-nowrap">
+								<div class="flex animate-marquee shrink-0 justify-around whitespace-nowrap [--duration:12s]">
 									<LogoExpand />
 								</div>
 							))
@@ -182,8 +182,8 @@ import Place_3 from "../assets/images/place_3.png";
 				<div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-grafito">
 					<div class="col-span-1 md:col-span-6 py-12 md:pt-0 md:pb-6 flex items-end order-2 md:order-1 pl-4 pr-6 md:px-0 md:pr-20">
 						<h4 class="font-light text-[20px] md:text-[30px] text-pretty dynamic-padding tracking-[-1.5px] md:tracking-[-1px]">
-							Nuestro equipo core tiene más de 13 años trabajando juntos y más de 30 años en el sector. Nos apasiona el sector inmobiliario, analizamos a fondo
-							sus oportunidades y entendemos donde hay espacio para hacer algo diferente, necesario y relevante para la gente que quiere vivir bien.
+							Nuestro equipo core tiene más de 30 años en el sector. Nos apasiona el sector inmobiliario, analizamos a fondo sus oportunidades y entendemos
+							donde hay espacio para hacer algo diferente, necesario y relevante para la gente que quiere vivir bien.
 						</h4>
 					</div>
 					<div class="col-span-1 md:col-span-6 order-1 md:order-2">
@@ -193,58 +193,61 @@ import Place_3 from "../assets/images/place_3.png";
 					</div>
 				</div>
 				<div class="container pt-10 md:py-40">
-					<div class="grid grid-cols-1 md:grid-cols-12 gap-8 justify-between">
-						<div class="cols-span-1 md:col-span-5 text-grafito mb-12 md:mb-0">
+					<div class="grid grid-cols-1 md:grid-cols-12 gap-8 justify-center">
+						<div class="cols-span-1 md:col-span-5 text-grafito mb-12 md:mb-0 col-start-1 md:col-start-4">
 							<div>
 								<div class="image-container md:max-w-[360px]" data-width="360" data-duration="1.5">
 									<div class="h-[500px] md:h-[470px] w-full max-w-full relative overflow-hidden mb-16">
 										<Image src={Jose} alt="Jose Camborda" class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
 									</div>
 								</div>
-								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Jose <br /> Camborda</h2>
+								<h2 class="text-[50px] font-light text-balance mb-2 leading-tight">Jose <br /> Camborda</h2>
+								<h3 class="mb-4 text-lg flex items-center gap-2">
+									Socio Fundador
+									<a href="https://www.linkedin.com/in/jlcamborda/" target="_blank" class="text-lg">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="20"
+											height="20"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											class="lucide lucide-linkedin"
+										>
+											<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+											<rect width="4" height="12" x="2" y="9"></rect>
+											<circle cx="4" cy="4" r="2"></circle></svg
+										>
+									</a>
+								</h3>
 								<p class="text-[20px] md:text-[23px] text-pretty font-light font-montserrat leading-tight">
 									Arquitecto experto en diseño de departamentos, dedicado a crear espacios funcionales y estéticos que se adapten a las necesidades y estilo de
 									vida de cada cliente. Con un enfoque que combina creatividad y eficiencia para transformar ideas en hogares únicos y confortables.
 								</p>
 							</div>
 						</div>
-						<div class="cols-span-1 md:col-span-5 text-grafito md:col-start-8 mb-12 md:mb-0">
-							<div>
-								<div class="image-container md:max-w-[360px]" data-width="360" data-delay="0.65" data-duration="1.5">
-									<div class="h-[500px] md:h-[470px] w-full max-w-full relative overflow-hidden mb-16">
-										<Image
-											src={Tania}
-											alt="Tania López-Guerra"
-											class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-										/>
-									</div>
-								</div>
-								<h2 class="text-[50px] font-light text-balance mb-4 leading-tight">Tania <br /> López-Guerra</h2>
-								<p class="text-[20px] md:text-[23px]text-pretty font-light font-montserrat leading-tight">
-									Arquitecta especializada en temas legales para el sector inmobiliario en Perú. Ha brindado asesorías en normativas urbanas, licencias y
-									gestión de proyectos, garantizando que cada desarrollo cumpla con los requisitos legales y técnicos para su éxito.
-								</p>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
-			<div class="section_eight" id="section_eight">
-				<div class="h-[380px] md:h-[834px] w-full relative overflow-hidden">
-					<Image
-						src={Billboard}
-						alt="Tu depa tiene Carácter"
-						class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 hidden md:block"
-					/>
-					<Image
-						src={BillboardMobile}
-						alt="Tu depa tiene Carácter - mobile"
-						class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 block md:hidden"
-					/>
-				</div>
-			</div>
-			<Footer id="footer" />
 		</div>
+		<div class="section_eight" id="section_eight">
+			<div class="h-[380px] md:h-[834px] w-full relative overflow-hidden">
+				<Image
+					src={Billboard}
+					alt="Tu depa tiene Carácter"
+					class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 hidden md:block"
+				/>
+				<Image
+					src={BillboardMobile}
+					alt="Tu depa tiene Carácter - mobile"
+					class="w-full h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 block md:hidden"
+				/>
+			</div>
+		</div>
+		<Footer id="footer" />
 	</main>
 </Layout>
 
