@@ -1,5 +1,6 @@
 ---
 import { AstroFont } from "astro-font";
+import { SEO } from "astro-seo";
 
 interface Props {
 	title: string;
@@ -12,17 +13,51 @@ const { title } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los espacios"
+		<SEO
+			title="Carácter"
+			description="Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los espacios"
+			,
+			openGraph={{
+				basic: {
+					title: title,
+					type: "website",
+					image: "https://caracter.josephfc.dev/billboard.png",
+					url: "https://caracter.josephfc.dev",
+				},
+				optional: {
+					description:
+						"Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los espacios",
+					locale: "es_PE",
+					localeAlternate: ["es_ES", "en_US"],
+				},
+			}}
+			,
+			twitter={{
+				image: "https://caracter.josephfc.dev/billboard.png",
+				title: "Carácter",
+				description:
+					"Empezamos a decidir cuando escogemos nuestro barrio, cuando entendemos la importancia de la arquitectura, la luz, la distribución de los espacios",
+			}}
+			,
+			extend={{
+				link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+				meta: [
+					{
+						name: "themeColor",
+						content: "#383833",
+					},
+					{
+						name: "colorScheme",
+						content: "dark",
+					},
+				],
+			}}
 		/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densityDpi=device-dpi, minimal-ui" />
-		<title>{title}</title>
-		<meta name="keywords" content="Carácter, caracter" />
+		<meta name="keywords" content="Carácter, caracter, inmobiliaria, inmobiliarias, inmobiliario, inmobiliarios, inmobiliarias, inmobiliaria, inmobiliarios" />
 		<meta name="robots" content="index" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<AstroFont
 			config={[
 				{
@@ -150,7 +185,7 @@ const { title } = Astro.props;
 	form textarea {
 		@apply bg-transparent border-b border-b-grafito placeholder:text-grafito/90 text-grafito  h-[48px] outline-none text-[18px];
 	}
-	form textarea  {
+	form textarea {
 		@apply h-auto resize-y min-h-[100px] pb-4 placeholder:text-grafito/30;
 		field-sizing: content;
 	}
@@ -158,6 +193,5 @@ const { title } = Astro.props;
 		@apply text-grafito text-[23px] mb-6 mt-2;
 	}
 	form input[type="radio"] {
-
 	}
 </style>
